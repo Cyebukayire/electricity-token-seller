@@ -1,4 +1,4 @@
-# peacecyebukayire
+# electricity-token-seller
 
 ## Project setup
 ```
