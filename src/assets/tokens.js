@@ -1,7 +1,17 @@
 export const tokens = [
     {
-        "token": "K78SKE02R",
-        "amount": 500,
-        "meter_number": 123456,
+        "id": 1,
+        "token": "20738242",
+        "status": 0,
+    },
+    {
+        "id": 2,
+        "token": "20738242",
+        "status": 0,
+    },
+    {
+        "id": 3,
+        "token": "20738242",
+        "status": 0,
     },
 ]

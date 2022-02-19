@@ -28,34 +28,35 @@
 <script setup>
 import { reactive } from "vue";
 import { tokens } from "../assets/tokens";
-// import { useRouter } from "vue-router";
-import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+// import { useStore } from "vuex";
 
-const store = useStore();
+// const store = useStore();
 
 const state = reactive({
-  generated_token: "SD3423SD",
-  amount: null,
-  meter_number: "",
+  generated_token: "",
+  amount: 300,
+  meter_number: "123456",
   buying_error: "",
   token: tokens[0],
 });
 
-// const router = useRouter();
+const router = useRouter();
 
 function buy() {
+  let self = this
   if (state.meter_number.length != 6) {
     state.buying_error = "Please! Use a valid meter number";
   } else if (state.amount % 100 != 0 || state.amount > 182500) {
     state.buying_error = "Invalid amount"
     } else {
-    state.token.amount = state.amount;
-    state.token.meter_number = state.meter_number;
-    store.commit("token",state.token.generated_token)
+    state.generated_token = state.token.token;
+    // store.commit("token",state.token.generated_token)
     // store.dispatch("token", state.token)
+    // state.amount = "";
     // state.meter_number = "";
     // state.buying_error = "";
-    // router.push({ name: "dashboard" });
+    router.push({ name: "Dashboard", params: {title: "Dashboard", token: state.generated_token, days: 15} });
   }
 }
 </script>
@@ -64,7 +65,7 @@ function buy() {
 import Token from "./Token.vue"
 
 export default {
-    name: 'BuyingForm',
+    name: 'Form',
     components: {
       Token
     },
