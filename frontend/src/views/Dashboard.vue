@@ -23,7 +23,9 @@ export default {
 <style scoped>
 .info {
     position: absolute;
-    
+    top: 30%;
+    left: 30%;
+
 }
 p {
     font-size: 16px;
