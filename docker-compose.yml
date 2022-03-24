@@ -16,7 +16,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-
+  db:
+    image: cyebukayire/e-seller:latest
+    build: ./
+    ports:
+      - 27017:27017
   nginx:
     build:
       context: nginx
@@ -26,3 +30,5 @@ services:
     hostname: nginx
     ports:
       - "80:80"
+volumes:
+  db:
