@@ -35,8 +35,8 @@ import { useRouter } from "vue-router";
 
 const state = reactive({
   generated_token: "",
-  amount: 300,
-  meter_number: "123456",
+  amount: '',
+  meter_number: "",
   buying_error: "",
   token: tokens[0],
 });
