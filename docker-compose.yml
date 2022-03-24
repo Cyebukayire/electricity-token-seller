@@ -1,25 +1,28 @@
-version: "3.8"
+   
+version: '3.8'
+
 services:
-    db:
-        image: cyebukayire/client:lastest
-        build:
-            context: .
-            dockerfile: Dockerfile
-        ports:
-            - "3306:3306"
-    web:
-      image: cyebukayire/server:latest
-      tty: true
-      stdin_open: true
-      build:
-          context: frontend
-          dockerfile: Dockerfile
-      ports:
-            - "80:3000"
-    nginx:
-      image: cyebukayire/nginx:latest
-      build:
-          context:  ngnix
-          dockerfile: Dockerfile
-      ports:
-            - "80:80"
+  server:
+    image: cyebukayire/server:latest
+    build:
+      context: Server
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+  client:
+    image: cyebukayire/client:latest 
+    build: 
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile 
+    image: cyebukayire/nginx:latest
+    mem_limit: 128m
+    hostname: nginx
+    ports:
+      - "80:80"
